@@ -64,7 +64,6 @@ export default class TodoEdit extends Component{
         }
         console.log("Object---->",obj);
         axios.post('http://localhost:5000/todos/update/'+this.props.match.params.id,obj).then(res=>{
-            console.log("result--->",res.data);
             NotificationManager.success('Todo updated successfully','success')
             this.props.history.push("/")
         }).catch(err=>{
