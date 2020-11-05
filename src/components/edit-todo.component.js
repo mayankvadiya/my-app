@@ -1,6 +1,7 @@
 import React,{Component} from "react";
 import axios from "axios"
-
+//notification
+import {NotificationManager} from 'react-notifications'
 export default class TodoEdit extends Component{
     constructor(props){
         super(props)
@@ -64,6 +65,7 @@ export default class TodoEdit extends Component{
         console.log("Object---->",obj);
         axios.post('http://localhost:5000/todos/update/'+this.props.match.params.id,obj).then(res=>{
             console.log("result--->",res.data);
+            NotificationManager.success('Todo updated successfully','success')
             this.props.history.push("/")
         }).catch(err=>{
             console.log("this--->",err);
